@@ -48,7 +48,7 @@ for (let i in scriptArgs) {
     case "--help":
       console.log( `
 
-usage: qjs tgbot [options]
+usage: node tgbot [options]
   -t  --token            Telegram Bot Api Token. https://t.me/BotFather
   -s  --save             Save the token internally to start the bot in the future without manually provide the token each time.
   -l  --load             Use the saved token to start the bot.
@@ -58,12 +58,9 @@ usage: qjs tgbot [options]
   -w  --wait             Bot delay in seconds. (Can process multiple messages at once, so you don't need a really low number to don't fallback).
 
 Examples:
-qjs tgbot -t 192829292:iqidkwiexampleunvalidtokeniwjwusjwis -s -v
+node tgbot -t 192829292:iqidkwiexampleunvalidtokeniwjwusjwis -s -v
 
-qjs tgbot -l -v
-
-qjsc -o ctgbot tgbot && cp ctgbot ~/../usr/bin/
-ctgbot -l -w 2 -v
+node tgbot -l -v
 `);
   std.exit(1);
 
@@ -89,16 +86,16 @@ if (!cli.token) {
   console.log(`${cli.COLORS.RED}No has introducido tu token de telegram.${cli.COLORS.RESET}
 
 Si aún no pusiste tu token.
-Inicia con: qjs tgbot -t 183828181:kqnsiwnskwkziqnsoqnsiqn -s
+Inicia con: node tgbot -t 183828181:kqnsiwnskwkziqnsoqnsiqn -s
 
 Si ya introduciste tu token.
-Inicia con: qjs tgbot -l
+Inicia con: node tgbot -l
 
 Si aún no tienes un token.
 Visita ${cli.COLORS.BLUE}https://t.me/BotFather${cli.COLORS.RESET} y escríbele /newBot
 
 
-ESCRIBE ${cli.COLORS.YELLOW}qjs tgbot -h${cli.COLORS.RESET} PARA OBTENER LISTA DE COMANDOS.`);
+ESCRIBE ${cli.COLORS.YELLOW}node tgbot -h${cli.COLORS.RESET} PARA OBTENER LISTA DE COMANDOS.`);
   std.exit(1);
 }
 
@@ -203,7 +200,7 @@ let process = (text, username, chatId) => {
         case "help":
           response = "Comandos Disponibles:\n/login loggeate con tu contraseña\n/help muestra este mensaje\n";
           if (userLogged) {
-            response += "\nComandos Disponibles Para Usuario Loggeado:\n/help muestra este mensaje\n/run comando corre el comando en bash\n/c++ corre el codigo c++\n/js corre el código javascript en un motor quickjs\n/python corre el código python\n/shutdown detiene permanentemente el bot\n/wait segundos cambia la velocidad de espera entre cada ciclo del bot.\n";
+            response += "\nComandos Disponibles Para Usuario Loggeado:\n/help muestra este mensaje\n/run comando corre el comando en bash\n/c++ corre el codigo c++\n/js corre el código javascript en un motor node\n/python corre el código python\n/shutdown detiene permanentemente el bot\n/wait segundos cambia la velocidad de espera entre cada ciclo del bot.\n";
           }
         break;
 
