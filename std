@@ -3,6 +3,8 @@ const fs = require("fs");
 exports.std = () => {
   let internal = {};
 
+  global.scriptArgs = process.argv;
+
   internal.exit = (exitCode = 0) => process.exit(exitCode);
   internal.evalScript = (code) => eval(code);
   internal.loadFile = filename => {
@@ -14,7 +16,8 @@ exports.std = () => {
     return filename;
   };
 
-  internal.loadScript = filename => eval(loadFile(filename));
+  /* TODO: Global eval */
+  //internal.loadScript = filename => eval(loadFile(filename));
 
   internal.open = (filename, mode) => {
     let fd = {};
