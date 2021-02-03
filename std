@@ -51,6 +51,9 @@ exports.std = () => {
     return rtnval;
 }
 
+  global.encodeURIComponent = args => encodeURI(args);
+  global.decodeURIComponent = args => decodeURI(args);
+
   return internal;
 };
 
