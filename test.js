@@ -23,6 +23,15 @@ let response = std.run("curl https://example.com -I --silent | head -n 2");
 console.log(`
 Response: ${response}`);
 
+let abc = {};
+abc.d = "e";
+console.log(JSON.stringify(abc, null, 2));
+
+
+let myLine = std.in.getline();
+
+console.log(`myLine: ${myLine}`);
+
 std.exit(1);
 
 console.log("Never print this"); 
