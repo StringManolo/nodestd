@@ -30,7 +30,14 @@ console.log(JSON.stringify(abc, null, 2));
 
 let myLine = std.in.getline();
 
+console.log("Waiting 2 seconds");
+std.sleep(2000);
+console.log("Done");
+
+
 console.log(`myLine: ${myLine}`);
+
+
 
 std.exit(1);
 

@@ -54,6 +54,10 @@ exports.std = () => {
   global.encodeURIComponent = args => encodeURI(args);
   global.decodeURIComponent = args => decodeURI(args);
 
+  internal.sleep = ms => {
+    internal.run(`sleep ${ms/1000}`);
+  }
+
   return internal;
 };
 

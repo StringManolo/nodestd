@@ -32,19 +32,18 @@ std.loadFile = filename => {
 
 
 if (cli.filename) {
-console.log(1);
   let code = std.loadFile(cli.filename);
   code = code
     .replace(new RegExp('import \\* as std from "std";', 'i'), 'const std = require("./std").std()')
     .replace(new RegExp('import \\* as os from "os";', 'i'), "")
     .replace(new RegExp('let run =', 'gi'), '/* let run =')
     .replace(new RegExp('return msg;\n}', ''), 'return msg;\n} */')
-    .replace(new RegExp("run\\(", "g"), "std.run(");
+    .replace(new RegExp("run\\(", "g"), "std.run(")
+    .replace(new RegExp("os.sleep\\(", "g"), "std.sleep(");
 
-console.log(2);
-  console.log(code);
   let fd = std.open(`${cli.filename}_nodeCompatible.js`, "w");
   fd.puts(code);
   fd.close();
+  console.log(`${cli.filename}_nodeCompatible.js created.`);
 }
 
