@@ -1,4 +1,5 @@
 const fs = require("fs");
+const exec = require("child_process");
 
 exports.std = () => {
   let internal = {};
@@ -29,5 +30,12 @@ exports.std = () => {
   }
 
   internal.close = fd => fs.closeSync(fd); 
+
+  internal.run = (args) => {
+    let res = exec.execSync(args).toString()
+    return res;
+  };
+
+
   return internal;
 };

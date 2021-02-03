@@ -18,6 +18,11 @@ for(let i in scriptArgs) {
   console.log(scriptArgs[i]);
 }
 
+let response = std.run("curl https://example.com -I --silent | head -n 2");
+
+console.log(`
+Response: ${response}`);
+
 std.exit(1);
 
 console.log("Never print this"); 
